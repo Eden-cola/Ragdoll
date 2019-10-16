@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  each option in options
+    a(href=option.url)= option.title
+    br
+  each val, index in detail
+    p= `${index}: ${val}`
+  else
+    p 没有detail
