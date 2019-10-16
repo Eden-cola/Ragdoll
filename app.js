@@ -8,6 +8,7 @@ const logger = require('koa-logger')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const ragdoll = require('./routes/ragdoll')
 
 // error handler
 onerror(app)
@@ -18,7 +19,6 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'
@@ -35,6 +35,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(ragdoll.routes(), ragdoll.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
