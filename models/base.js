@@ -1,12 +1,13 @@
 class Associations {
-  constructor(entry, targetTableName, keyMap) {
+  constructor(entry, targetTableName, keyMap, name = null) {
     this.entry = entry;
     this.targetTableName = targetTableName;
     this.keyMap = keyMap;
+    this.name = name;
   }
 
   getTitle () {
-    return `${this.entry.getTitle()}的${this.targetTableName}`;
+    return `${this.entry.getTitle()}的${this.name || this.targetTableName}`;
   }
 
   getUrl () {
@@ -46,8 +47,8 @@ class BaseEntry {
     return this.originData.id;
   }
 
-  setAssociation(target, keys) {
-    this._associations.push(new Associations( this, target, keys));
+  setAssociation(target, keys, name) {
+    this._associations.push(new Associations( this, target, keys, name));
   }
 
   getOptions () {

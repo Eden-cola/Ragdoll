@@ -5,6 +5,12 @@ class Applications extends BaseModel {
     this.setAssociation('candidates', {
       id: 'candidate_id',
     })
+    this.setAssociation('jobs', {
+      id: 'job_id',
+    }, '所属职位')
+    this.setAssociation('interview_applications', {
+      application_id: 'id',
+    }, '面试列表')
   }
 }
 

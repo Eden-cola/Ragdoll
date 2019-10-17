@@ -49,6 +49,11 @@ models.getModel = function (name) {
 
 models.addModel('applications');
 models.addModel('candidates');
+models.addModel('jobs');
+models.addModel('interview_applications');
+models.addModel('group_interviews');
+models.addModel('interview_interviewers');
+models.addModel('users');
 
 module.exports = models
 
